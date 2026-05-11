@@ -7,6 +7,15 @@ if (mobileMenu && nav) {
   });
 }
 
+// FECHAR MENU AO CLICAR EM UM LINK
+const navLinks = document.querySelectorAll('.nav a');
+
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('active');
+  });
+});
+
 const form = document.getElementById('contact-form');
 const popup = document.getElementById('popup');
 const closePopup = document.getElementById('close-popup');
