@@ -1,41 +1,46 @@
-// MENU MOBILE
-
 const mobileMenu = document.getElementById('menu-mobile');
 const nav = document.getElementById('nav');
 
-mobileMenu.addEventListener('click', () => {
-  nav.classList.toggle('active');
-});
-
-
-// FORMULÁRIO WHATSAPP
+if (mobileMenu && nav) {
+  mobileMenu.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+}
 
 const form = document.getElementById('contact-form');
+const popup = document.getElementById('popup');
+const closePopup = document.getElementById('close-popup');
 
-form.addEventListener('submit', function(e){
+if (form) {
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
 
-  e.preventDefault();
+    const formData = new FormData(form);
 
-  const nome = document.getElementById('nome').value;
-  const email = document.getElementById('email').value;
-  const telefone = document.getElementById('telefone').value;
-  const mensagem = document.getElementById('mensagem').value;
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
 
-  const texto = `
-Olá, gostaria de entrar em contato.
+      if (response.ok) {
+        form.reset();
+        popup.classList.add('active');
+      } else {
+        alert('Erro ao enviar. Verifique o FormSubmit.');
+      }
 
-*Nome:* ${nome}
-*E-mail:* ${email}
-*Telefone:* ${telefone}
+    } catch (error) {
+      alert('Erro ao enviar. Teste com o site publicado na Vercel.');
+    }
+  });
+}
 
-*Mensagem:*
-${mensagem}
-  `;
-
-  const numero = '5541999214387';
-
-  const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
-
-  window.open(url, '_blank');
-
-});
+if (closePopup) {
+  closePopup.addEventListener('click', () => {
+    popup.classList.remove('active');
+  });
+}
