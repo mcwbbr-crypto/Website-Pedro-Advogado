@@ -327,17 +327,40 @@
 
       </div>
 
-      <form class="form">
+      <form class="form" id="contact-form">
 
-        <input type="text" placeholder="Seu nome">
-        <input type="email" placeholder="Seu e-mail">
-        <input type="text" placeholder="Seu telefone">
+  <input 
+    type="text" 
+    id="nome"
+    placeholder="Seu nome"
+    required
+  >
 
-        <textarea placeholder="Sua mensagem"></textarea>
+  <input 
+    type="email"
+    id="email"
+    placeholder="Seu e-mail"
+    required
+  >
 
-        <button type="submit" class="btn gold">
-          Enviar Mensagem
-        </button>
+  <input 
+    type="text"
+    id="telefone"
+    placeholder="Seu telefone"
+    required
+  >
+
+  <textarea
+    id="mensagem"
+    placeholder="Sua mensagem"
+    required
+  ></textarea>
+
+  <button type="submit" class="btn gold">
+    Enviar Mensagem
+  </button>
+
+</form>
 
       </form>
 
