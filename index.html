@@ -327,31 +327,35 @@
 
       </div>
 
-      <form class="form" id="contact-form">
+      <form 
+  action="https://formsubmit.co/contato@pedromanoel.adv.br" 
+  method="POST"
+  class="form"
+>
 
   <input 
-    type="text" 
-    id="nome"
+    type="text"
+    name="nome"
     placeholder="Seu nome"
     required
   >
 
   <input 
     type="email"
-    id="email"
+    name="email"
     placeholder="Seu e-mail"
     required
   >
 
   <input 
     type="text"
-    id="telefone"
+    name="telefone"
     placeholder="Seu telefone"
     required
   >
 
   <textarea
-    id="mensagem"
+    name="mensagem"
     placeholder="Sua mensagem"
     required
   ></textarea>
@@ -360,9 +364,19 @@
     Enviar Mensagem
   </button>
 
-</form>
+  <!-- CONFIG -->
 
-      </form>
+  <input type="hidden" name="_subject" value="Novo contato do site">
+
+  <input type="hidden" name="_captcha" value="false">
+
+  <input 
+    type="hidden" 
+    name="_next" 
+    value="https://pedromanoel.adv.br/obrigado.html"
+  >
+
+</form>
 
     </div>
 
